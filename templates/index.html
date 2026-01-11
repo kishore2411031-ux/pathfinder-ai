@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Analyzer</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+    <h1>AI Skill Analyzer</h1>
+
+    <form method="POST">
+        <input type="text" name="skills" placeholder="Enter your skills (comma separated)" required>
+        <br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if skills %}
+        <h3>Your Skills:</h3>
+        <p>{{ skills }}</p>
+
+        <h3>Recommended Job Role:</h3>
+        <p style="color:green; font-size:20px;">{{ role }}</p>
+
+        <h3>Skills you should learn next:</h3>
+        <ul>
+            {% for s in missing %}
+                <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>
